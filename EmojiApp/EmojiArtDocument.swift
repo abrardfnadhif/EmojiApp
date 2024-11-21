@@ -147,6 +147,8 @@ class EmojiArtDocument: ReferenceFileDocument {
         undoManager?.setActionName(action)
     }
     
+//MARK: - Intent (s)
+    
     func setBackground(_ url: URL?, undoWith undoManager: UndoManager? = nil) {
         undoablyPerform("Set Background", with: undoManager) {
             emojiArt.background = url
@@ -156,6 +158,40 @@ class EmojiArtDocument: ReferenceFileDocument {
     func addEmoji(_ emoji: String, at position: Emoji.Position, size: CGFloat, undoWith undoManager: UndoManager? = nil) {
         undoablyPerform("Add \(emoji)", with: undoManager) {
             emojiArt.addEmoji(emoji, at: position, size: Int(size))
+        }
+    }
+    
+    func resize(_ emoji: Emoji, by scale: CGFloat, undoWith undoManager: UndoManager? = nil) {
+        undoablyPerform("Resize \(emoji)", with: undoManager) {
+            emojiArt[emoji].size = Int(CGFloat(emojiArt[emoji].size) * scale)
+        }
+    }
+    
+    func resize(emojiWithId id: Emoji.ID, by scale: CGFloat, undoWith undoManager: UndoManager? = nil) {
+        if let emoji = emojiArt[id] {
+            resize(emoji, by: scale, undoWith: undoManager)
+        }
+    }
+    
+    func move(_ emoji: Emoji, by offset: CGOffset, undoWith undoManager: UndoManager? = nil) {
+        undoablyPerform("Move \(emoji)", with: undoManager) {
+            let existingPosition = emojiArt[emoji].position
+            emojiArt[emoji].position = Emoji.Position(
+                x: existingPosition.x + Int(offset.width),
+                y: existingPosition.y - Int(offset.height)
+            )
+        }
+    }
+    
+    func move(emojiWithId id: Emoji.ID, by offset: CGOffset, undoWith undoManager: UndoManager? = nil) {
+        if let emoji = emojiArt[id] {
+            move(emoji, by: offset, undoWith: undoManager)
+        }
+    }
+    
+    func removeEmoji(_ emoji: Emoji, undoWith undoManager: UndoManager? = nil) {
+        undoablyPerform("Remove \(emoji)", with: undoManager) {
+            emojiArt.removeEmoji(emoji.id)
         }
     }
 }

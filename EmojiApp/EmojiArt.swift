@@ -17,11 +17,11 @@ struct EmojiArt: Codable {
         return encoded
     }
     
-    init (json: Data) throws {
+    init(json: Data) throws {
         self = try JSONDecoder().decode(EmojiArt.self, from: json)
     }
     
-    init () {
+    init() {
         
     }
     
@@ -29,15 +29,52 @@ struct EmojiArt: Codable {
     
     mutating func addEmoji(_ emoji: String, at position: Emoji.Position, size: Int) {
         uniqueEmojiId += 1
-        emojis.append(Emoji(id: uniqueEmojiId, string: emoji, position: position, size: size))
+        emojis.append(Emoji(
+            string: emoji,
+            position: position,
+            size: size,
+            id: uniqueEmojiId
+        ))
+    }
+    
+    mutating func removeEmoji(_ emojiId: Emoji.ID) {
+        if let idx = index(of: emojiId) {
+            emojis.remove(at: idx)
+        }
+    }
+    
+    subscript(_ emojiId: Emoji.ID) -> Emoji? {
+        if let index = index(of: emojiId) {
+            return emojis[index]
+        } else {
+            return nil
+        }
+    }
+
+    subscript(_ emoji: Emoji) -> Emoji {
+        get {
+            if let index = index(of: emoji.id) {
+                return emojis[index]
+            } else {
+                return emoji // should probably throw error
+            }
+        }
+        set {
+            if let index = index(of: emoji.id) {
+                emojis[index] = newValue
+            }
+        }
+    }
+    
+    private func index(of emojiId: Emoji.ID) -> Int? {
+        emojis.firstIndex(where: { $0.id == emojiId })
     }
     
     struct Emoji: Identifiable, Codable {
-        var id: Int
-        
         let string: String
         var position: Position
         var size: Int
+        var id: Int
         
         struct Position: Codable {
             var x: Int

@@ -11,7 +11,6 @@
 		B598D5332CEC42C90036A16E /* PaletteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B598D5322CEC42C90036A16E /* PaletteStore.swift */; };
 		B598D5352CEC47340036A16E /* PaletteChooser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B598D5342CEC47340036A16E /* PaletteChooser.swift */; };
 		B59EA3262CDB654700738001 /* EmojiAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59EA3252CDB654700738001 /* EmojiAppApp.swift */; };
-		B59EA3282CDB654700738001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59EA3272CDB654700738001 /* ContentView.swift */; };
 		B59EA32A2CDB654A00738001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B59EA3292CDB654A00738001 /* Assets.xcassets */; };
 		B59EA32D2CDB654A00738001 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B59EA32C2CDB654A00738001 /* Preview Assets.xcassets */; };
 		B59EA3342CDB660500738001 /* EmojiArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59EA3332CDB660500738001 /* EmojiArt.swift */; };
@@ -30,7 +29,6 @@
 		B598D5342CEC47340036A16E /* PaletteChooser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteChooser.swift; sourceTree = "<group>"; };
 		B59EA3222CDB654700738001 /* EmojiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmojiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B59EA3252CDB654700738001 /* EmojiAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiAppApp.swift; sourceTree = "<group>"; };
-		B59EA3272CDB654700738001 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B59EA3292CDB654A00738001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B59EA32C2CDB654A00738001 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B59EA3332CDB660500738001 /* EmojiArt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArt.swift; sourceTree = "<group>"; };
@@ -74,22 +72,21 @@
 		B59EA3242CDB654700738001 /* EmojiApp */ = {
 			isa = PBXGroup;
 			children = (
-				B5CA9F612CEDE20700DBBE93 /* Info.plist */,
 				B59EA3252CDB654700738001 /* EmojiAppApp.swift */,
-				B59EA3272CDB654700738001 /* ContentView.swift */,
 				B59EA3332CDB660500738001 /* EmojiArt.swift */,
 				B59EA3352CDB6A7000738001 /* EmojiArtDocument.swift */,
 				B59EA3372CDB6C1700738001 /* EmojiArtDocumentView.swift */,
 				B59EA3392CDB6E5800738001 /* Extensions.swift */,
 				B598D5302CEC41190036A16E /* Palette.swift */,
-				B598D5322CEC42C90036A16E /* PaletteStore.swift */,
-				B59EA3292CDB654A00738001 /* Assets.xcassets */,
-				B59EA33B2CDC795800738001 /* Sturldata.swift */,
-				B59EA32B2CDB654A00738001 /* Preview Content */,
 				B598D5342CEC47340036A16E /* PaletteChooser.swift */,
 				B5CA9F5B2CED819C00DBBE93 /* PaletteEditor.swift */,
 				B5CA9F5D2CED90F800DBBE93 /* PaletteList.swift */,
 				B5CA9F5F2CED9A4300DBBE93 /* PaletteManager.swift */,
+				B598D5322CEC42C90036A16E /* PaletteStore.swift */,
+				B59EA33B2CDC795800738001 /* Sturldata.swift */,
+				B5CA9F612CEDE20700DBBE93 /* Info.plist */,
+				B59EA3292CDB654A00738001 /* Assets.xcassets */,
+				B59EA32B2CDB654A00738001 /* Preview Content */,
 			);
 			path = EmojiApp;
 			sourceTree = "<group>";
@@ -181,7 +178,6 @@
 				B598D5332CEC42C90036A16E /* PaletteStore.swift in Sources */,
 				B59EA3362CDB6A7000738001 /* EmojiArtDocument.swift in Sources */,
 				B5CA9F5C2CED819C00DBBE93 /* PaletteEditor.swift in Sources */,
-				B59EA3282CDB654700738001 /* ContentView.swift in Sources */,
 				B59EA3262CDB654700738001 /* EmojiAppApp.swift in Sources */,
 				B598D5312CEC41190036A16E /* Palette.swift in Sources */,
 				B598D5352CEC47340036A16E /* PaletteChooser.swift in Sources */,
